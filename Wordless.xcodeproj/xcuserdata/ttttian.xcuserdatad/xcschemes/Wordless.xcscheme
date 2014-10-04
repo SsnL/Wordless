@@ -14,10 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2D6B80D15413A570050835F"
-               BuildableName = "FriendPickerSample.app"
-               BlueprintName = "FriendPickerSample"
-               ReferencedContainer = "container:FriendPickerSample.xcodeproj">
+               BlueprintIdentifier = "3F493BF719DF961E00D0F1E8"
+               BuildableName = "Wordless.app"
+               BlueprintName = "Wordless"
+               ReferencedContainer = "container:Wordless.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F493C0E19DF961F00D0F1E8"
+               BuildableName = "WordlessTests.xctest"
+               BlueprintName = "WordlessTests"
+               ReferencedContainer = "container:Wordless.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +42,24 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F493C0E19DF961F00D0F1E8"
+               BuildableName = "WordlessTests.xctest"
+               BlueprintName = "WordlessTests"
+               ReferencedContainer = "container:Wordless.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2D6B80D15413A570050835F"
-            BuildableName = "FriendPickerSample.app"
-            BlueprintName = "FriendPickerSample"
-            ReferencedContainer = "container:FriendPickerSample.xcodeproj">
+            BlueprintIdentifier = "3F493BF719DF961E00D0F1E8"
+            BuildableName = "Wordless.app"
+            BlueprintName = "Wordless"
+            ReferencedContainer = "container:Wordless.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +75,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2D6B80D15413A570050835F"
-            BuildableName = "FriendPickerSample.app"
-            BlueprintName = "FriendPickerSample"
-            ReferencedContainer = "container:FriendPickerSample.xcodeproj">
+            BlueprintIdentifier = "3F493BF719DF961E00D0F1E8"
+            BuildableName = "Wordless.app"
+            BlueprintName = "Wordless"
+            ReferencedContainer = "container:Wordless.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +93,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2D6B80D15413A570050835F"
-            BuildableName = "FriendPickerSample.app"
-            BlueprintName = "FriendPickerSample"
-            ReferencedContainer = "container:FriendPickerSample.xcodeproj">
+            BlueprintIdentifier = "3F493BF719DF961E00D0F1E8"
+            BuildableName = "Wordless.app"
+            BlueprintName = "Wordless"
+            ReferencedContainer = "container:Wordless.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

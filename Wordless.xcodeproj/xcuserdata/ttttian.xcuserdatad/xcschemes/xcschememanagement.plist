@@ -4,15 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Scrumptious.xcscheme</key>
+		<key>Wordless.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B9CD0A6E150EA4DD00560A93</key>
+		<key>3F493BF719DF961E00D0F1E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F493C0E19DF961F00D0F1E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
