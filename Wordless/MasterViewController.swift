@@ -32,9 +32,27 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insertObject(NSDate.date(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        var newWordField: UITextField?
+        func wordEntered(alert: UIAlertAction!) {
+            let str = newWordField!.text
+            if (str.isEmpty) {
+                return;
+            }
+            objects.insertObject(Person(name: newWordField!.text), atIndex: 0)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+        
+        // display an alert
+        let newWordPrompt = UIAlertController(title: "Enter contact name", message: "Chat wordlessly!", preferredStyle: UIAlertControllerStyle.Alert)
+        newWordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Name"
+            textField.secureTextEntry = false
+            newWordField = textField
+        })
+        newWordPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        newWordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: wordEntered))
+        presentViewController(newWordPrompt, animated: true, completion: nil)
     }
 
     // MARK: - Segues
@@ -42,7 +60,7 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as NSDate
+                let object = objects[indexPath.row] as Person
             (segue.destinationViewController as DetailViewController).detailItem = object
             }
         }
@@ -61,8 +79,8 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-        let object = objects[indexPath.row] as NSDate
-        cell.textLabel?.text = object.description
+        let object = objects[indexPath.row] as Person
+        cell.textLabel?.text = object.name
         return cell
     }
 

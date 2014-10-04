@@ -14,6 +14,7 @@
 		3F493C0719DF961E00D0F1E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F493C0619DF961E00D0F1E8 /* Images.xcassets */; };
 		3F493C0A19DF961E00D0F1E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F493C0819DF961E00D0F1E8 /* LaunchScreen.xib */; };
 		3F493C1619DF961F00D0F1E8 /* WordlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F493C1519DF961F00D0F1E8 /* WordlessTests.swift */; };
+		3F493C2919DF9E5100D0F1E8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F493C2819DF9E5100D0F1E8 /* Person.swift */; };
 		8D34348D19DF9F16004CFA3B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34348A19DF9F16004CFA3B /* Bolts.framework */; };
 		8D34348E19DF9F16004CFA3B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34348B19DF9F16004CFA3B /* Parse.framework */; };
 		8D34348F19DF9F16004CFA3B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */; };
@@ -53,6 +54,7 @@
 		3F493C0F19DF961F00D0F1E8 /* WordlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F493C1419DF961F00D0F1E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F493C1519DF961F00D0F1E8 /* WordlessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlessTests.swift; sourceTree = "<group>"; };
+		3F493C2819DF9E5100D0F1E8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8D34348A19DF9F16004CFA3B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8D34348B19DF9F16004CFA3B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				3F493C0619DF961E00D0F1E8 /* Images.xcassets */,
 				3F493C0819DF961E00D0F1E8 /* LaunchScreen.xib */,
 				3F493BFB19DF961E00D0F1E8 /* Supporting Files */,
+				3F493C2819DF9E5100D0F1E8 /* Person.swift */,
 				8D3434A619DFA079004CFA3B /* Wordless-Bridging-Header.h */,
 			);
 			path = Wordless;
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F493C0219DF961E00D0F1E8 /* DetailViewController.swift in Sources */,
+				3F493C2919DF9E5100D0F1E8 /* Person.swift in Sources */,
 				3F493C0019DF961E00D0F1E8 /* MasterViewController.swift in Sources */,
 				8D3434AA19E0893C004CFA3B /* RSTMessage.swift in Sources */,
 				8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */,
