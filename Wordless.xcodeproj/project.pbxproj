@@ -28,6 +28,7 @@
 		8D3434A319DF9FAA004CFA3B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3434A219DF9FAA004CFA3B /* Security.framework */; };
 		8D3434A519DF9FB4004CFA3B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */; };
 		8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A719DFA079004CFA3B /* ParseImport.m */; };
+		8D3434AA19E0893C004CFA3B /* RSTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A919E0893C004CFA3B /* RSTMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D3434A619DFA079004CFA3B /* Wordless-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wordless-Bridging-Header.h"; sourceTree = "<group>"; };
 		8D3434A719DFA079004CFA3B /* ParseImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseImport.m; sourceTree = "<group>"; };
+		8D3434A919E0893C004CFA3B /* RSTMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				3F493BFD19DF961E00D0F1E8 /* AppDelegate.swift */,
+				8D3434A919E0893C004CFA3B /* RSTMessage.swift */,
 				3F493BFF19DF961E00D0F1E8 /* MasterViewController.swift */,
 				8D3434A719DFA079004CFA3B /* ParseImport.m */,
 				3F493C0119DF961E00D0F1E8 /* DetailViewController.swift */,
@@ -274,6 +277,7 @@
 			files = (
 				3F493C0219DF961E00D0F1E8 /* DetailViewController.swift in Sources */,
 				3F493C0019DF961E00D0F1E8 /* MasterViewController.swift in Sources */,
+				8D3434AA19E0893C004CFA3B /* RSTMessage.swift in Sources */,
 				8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */,
 				3F493BFE19DF961E00D0F1E8 /* AppDelegate.swift in Sources */,
 			);
