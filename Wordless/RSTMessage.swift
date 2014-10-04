@@ -8,15 +8,24 @@
 
 import Foundation
 class RSTMessage: PFObject {
-    var sender: PFUser?
-    var receiver: PFUser?
+    var sender: RSTUser?
+    var receiver: RSTUser?
     var content: String?
     var date: NSDate?
     var read: Bool!
 //    var sentiment: Int!
+    
+    init(sender s: RSTUser, receiver r: RSTUser, content c: String, date d: NSDate) {
+        super.init()
+        sender = s
+        receiver = r
+        content = c
+        date = d
+        read = false
+    }
 
-//    static func makeJSQMessage(m : RSTMessage) -> JSQMessage {
-//        return JSQMessage(text: m.content!, sender: m.sender.name, date: m.date!)
-//    }
+    class func makeJSQMessage(m : RSTMessage) -> JSQMessage {
+        return JSQMessage(text: m.content!, sender: m.sender!.name, date: m.date!)
+    }
 //    int sentiment
 }

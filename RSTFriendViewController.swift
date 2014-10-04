@@ -74,7 +74,7 @@ class RSTFriendViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = objects[indexPath.row] as Person
-                (segue.destinationViewController as DetailViewController).detailItem = object
+//                (segue.destinationViewController as DetailViewController).detailItem = object
             }
         }
     }
