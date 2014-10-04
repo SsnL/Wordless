@@ -30,6 +30,7 @@
 		8D3434A519DF9FB4004CFA3B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */; };
 		8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A719DFA079004CFA3B /* ParseImport.m */; };
 		8D3434AA19E0893C004CFA3B /* RSTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A919E0893C004CFA3B /* RSTMessage.swift */; };
+		8D34365E19E09202004CFA3B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34365D19E09202004CFA3B /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		8D3434A619DFA079004CFA3B /* Wordless-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wordless-Bridging-Header.h"; sourceTree = "<group>"; };
 		8D3434A719DFA079004CFA3B /* ParseImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseImport.m; sourceTree = "<group>"; };
 		8D3434A919E0893C004CFA3B /* RSTMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTMessage.swift; sourceTree = "<group>"; };
+		8D34365D19E09202004CFA3B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				8D34349719DF9F55004CFA3B /* CoreGraphics.framework in Frameworks */,
 				8D34349D19DF9F7A004CFA3B /* CFNetwork.framework in Frameworks */,
 				8D34349B19DF9F75004CFA3B /* AudioToolbox.framework in Frameworks */,
+				8D34365E19E09202004CFA3B /* FacebookSDK.framework in Frameworks */,
 				8D34349919DF9F60004CFA3B /* QuartzCore.framework in Frameworks */,
 				8D34349519DF9F4B004CFA3B /* StoreKit.framework in Frameworks */,
 				8D34349319DF9F46004CFA3B /* CoreLocation.framework in Frameworks */,
@@ -107,6 +110,7 @@
 		3F493BEF19DF961E00D0F1E8 = {
 			isa = PBXGroup;
 			children = (
+				8D34365D19E09202004CFA3B /* FacebookSDK.framework */,
 				8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */,
 				8D3434A219DF9FAA004CFA3B /* Security.framework */,
 				8D3434A019DF9FA0004CFA3B /* MobileCoreServices.framework */,
@@ -241,6 +245,7 @@
 			knownRegions = (
 				en,
 				Base,
+				he,
 			);
 			mainGroup = 3F493BEF19DF961E00D0F1E8;
 			productRefGroup = 3F493BF919DF961E00D0F1E8 /* Products */;
@@ -410,6 +415,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/FacebookSDK/FBAudienceNetwork",
 				);
 				INFOPLIST_FILE = Wordless/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,6 +434,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/FacebookSDK/FBAudienceNetwork",
 				);
 				INFOPLIST_FILE = Wordless/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

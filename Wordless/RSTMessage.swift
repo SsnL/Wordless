@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class RSTMessage {
+class RSTMessage: PFObject {
     var sender: PFUser?
     var receiver: PFUser?
     var content: String?

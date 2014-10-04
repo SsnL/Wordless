@@ -17,11 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("Xb9goIiVWItoODGfblJxcCGGYiFY2Nfx2QgkXqZ0", clientKey: "lvCrual6uXYXiBuW4spWKqfmyo6iunHiS70etNoL")
         
-        var testing = PFObject(className: "TestClass")
-        testing.addObject("Banana", forKey: "favoriteFood")
-        testing.addObject("Chocolate", forKey: "favoriteIceCream")
-        testing.saveInBackground()
+        FBLoginView.self
+        FBProfilePictureView.self
+        
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) ->Bool {
+    var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
+    return wasHandled
     }
 
     func applicationWillResignActive(application: UIApplication) {
