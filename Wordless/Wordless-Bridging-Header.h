@@ -4,3 +4,5 @@
 
 #import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "JSQMessages.h"
+#import "JSQMessageData.h"
