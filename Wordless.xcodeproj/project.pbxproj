@@ -31,6 +31,8 @@
 		8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A719DFA079004CFA3B /* ParseImport.m */; };
 		8D3434AA19E0893C004CFA3B /* RSTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A919E0893C004CFA3B /* RSTMessage.swift */; };
 		8D34365E19E09202004CFA3B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34365D19E09202004CFA3B /* FacebookSDK.framework */; };
+		8D34366019E09A72004CFA3B /* RSTFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34365F19E09A72004CFA3B /* RSTFriendViewController.swift */; };
+		8D34366219E0AD0B004CFA3B /* RSTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34366119E0AD0B004CFA3B /* RSTUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		8D3434A719DFA079004CFA3B /* ParseImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseImport.m; sourceTree = "<group>"; };
 		8D3434A919E0893C004CFA3B /* RSTMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTMessage.swift; sourceTree = "<group>"; };
 		8D34365D19E09202004CFA3B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		8D34365F19E09A72004CFA3B /* RSTFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSTFriendViewController.swift; path = ../RSTFriendViewController.swift; sourceTree = "<group>"; };
+		8D34366119E0AD0B004CFA3B /* RSTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSTUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		3F493BEF19DF961E00D0F1E8 = {
 			isa = PBXGroup;
 			children = (
+				8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */,
 				8D34365D19E09202004CFA3B /* FacebookSDK.framework */,
 				8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */,
 				8D3434A219DF9FAA004CFA3B /* Security.framework */,
@@ -123,7 +128,6 @@
 				8D34349219DF9F46004CFA3B /* CoreLocation.framework */,
 				8D34348A19DF9F16004CFA3B /* Bolts.framework */,
 				8D34348B19DF9F16004CFA3B /* Parse.framework */,
-				8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */,
 				3F493BFA19DF961E00D0F1E8 /* Wordless */,
 				3F493C1219DF961F00D0F1E8 /* WordlessTests */,
 				3F493BF919DF961E00D0F1E8 /* Products */,
@@ -144,6 +148,8 @@
 			children = (
 				3F493BFD19DF961E00D0F1E8 /* AppDelegate.swift */,
 				8D3434A919E0893C004CFA3B /* RSTMessage.swift */,
+				8D34366119E0AD0B004CFA3B /* RSTUser.swift */,
+				8D34365F19E09A72004CFA3B /* RSTFriendViewController.swift */,
 				3F493BFF19DF961E00D0F1E8 /* MasterViewController.swift */,
 				8D3434A719DFA079004CFA3B /* ParseImport.m */,
 				3F493C0119DF961E00D0F1E8 /* DetailViewController.swift */,
@@ -283,7 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D34366219E0AD0B004CFA3B /* RSTUser.swift in Sources */,
 				3F493C0219DF961E00D0F1E8 /* DetailViewController.swift in Sources */,
+				8D34366019E09A72004CFA3B /* RSTFriendViewController.swift in Sources */,
 				3F493C2919DF9E5100D0F1E8 /* Person.swift in Sources */,
 				3F493C0019DF961E00D0F1E8 /* MasterViewController.swift in Sources */,
 				8D3434AA19E0893C004CFA3B /* RSTMessage.swift in Sources */,

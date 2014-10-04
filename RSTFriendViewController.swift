@@ -1,62 +1,49 @@
 //
-//  MasterViewController.swift
+//  RSTFriendViewController.swift
 //  Wordless
 //
-//  Created by S_sn on 10/3/14.
+//  Created by hr_zhu on 14-10-4.
 //  Copyright (c) 2014 RST. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class MasterViewController: UITableViewController, FBLoginViewDelegate {
+class RSTFriendViewController: UITableViewController {
     
     var objects = NSMutableArray()
-    var fbFriends: NSArray! = NSArray.array()
     
-    func loginView(loginView: FBLoginView!, handleError error: NSError!) {
-        NSLog("Login Error")
+    override init() {
+        super.init()
     }
     
-    func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
-        var friendsRequest = FBRequest.requestForMyFriends()
-        friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            var resultdict = result as NSDictionary
-            var data : NSArray = resultdict.objectForKey("data") as NSArray
-            
-            for i in 0...data.count {
-                let valueDict : NSDictionary = data[i] as NSDictionary
-                let id = valueDict.objectForKey("id") as String
-            }
-            
-            self.fbFriends = resultdict.objectForKey("data") as NSArray
-            NSLog("%d", self.fbFriends.count)
-        }
-        let vc = RSTFriendViewController(fromFriends: self.fbFriends)
-        self.presentViewController(vc, animated: false, completion: nil)
+    convenience init(fromFriends fbFriends: NSArray) {
+        self.init()
+        objects = fbFriends.mutableCopy() as NSMutableArray
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
-        
-        let fbLoginView = FBLoginView()
-        fbLoginView.center = self.view.center
-        self.view.addSubview(fbLoginView)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func insertNewObject(sender: AnyObject) {
         var newWordField: UITextField?
         func wordEntered(alert: UIAlertAction!) {
@@ -80,41 +67,41 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
         newWordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: wordEntered))
         presentViewController(newWordPrompt, animated: true, completion: nil)
     }
-
+    
     // MARK: - Segues
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = objects[indexPath.row] as Person
-            (segue.destinationViewController as DetailViewController).detailItem = object
+                (segue.destinationViewController as DetailViewController).detailItem = object
             }
         }
     }
-
+    
     // MARK: - Table View
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
+        
         let object = objects[indexPath.row] as Person
         cell.textLabel?.text = object.name
         return cell
     }
-
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeObjectAtIndex(indexPath.row)
@@ -123,7 +110,6 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
-
+    
+    
 }
-
