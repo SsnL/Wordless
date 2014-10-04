@@ -11,5 +11,10 @@ class RSTMessage: PFObject {
     var sender: PFUser?
     var receiver: PFUser?
     var content: String?
+    var date: NSDate?
+    
+//    static func makeJSQMessage(m : RSTMessage) -> JSQMessage {
+//        return JSQMessage(text: m.content!, sender: m.sender.name, date: m.date!)
+//    }
 //    int sentiment
 }

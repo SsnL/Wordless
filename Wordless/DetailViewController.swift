@@ -11,6 +11,8 @@ import UIKit
 class DetailViewController: JSQMessagesViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    
+    private var messages: Array<JSQMessageData> = []
 //
 //
 //    var detailItem: AnyObject? {
@@ -35,6 +37,14 @@ class DetailViewController: JSQMessagesViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NSLog("loaded")
 //        self.configureView()
+    }
+    
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
+        NSLog("text: %s\n", text)
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        var message = JSQMessage(text: text, sender: sender)
+        self.messages.append(message)
+        self.finishSendingMessage()
     }
 //
 //    override func didReceiveMemoryWarning() {
