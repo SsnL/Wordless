@@ -14,10 +14,21 @@
 		3F493C0719DF961E00D0F1E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F493C0619DF961E00D0F1E8 /* Images.xcassets */; };
 		3F493C0A19DF961E00D0F1E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F493C0819DF961E00D0F1E8 /* LaunchScreen.xib */; };
 		3F493C1619DF961F00D0F1E8 /* WordlessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F493C1519DF961F00D0F1E8 /* WordlessTests.swift */; };
-		3F493C2019DF9B4300D0F1E8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F493C1F19DF9B4300D0F1E8 /* Parse.framework */; };
-		3F493C2319DF9B8900D0F1E8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F493C2119DF9B8900D0F1E8 /* Bolts.framework */; };
-		3F493C2419DF9B8900D0F1E8 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F493C2219DF9B8900D0F1E8 /* ParseFacebookUtils.framework */; };
 		3F493C2919DF9E5100D0F1E8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F493C2819DF9E5100D0F1E8 /* Person.swift */; };
+		8D34348D19DF9F16004CFA3B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34348A19DF9F16004CFA3B /* Bolts.framework */; };
+		8D34348E19DF9F16004CFA3B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34348B19DF9F16004CFA3B /* Parse.framework */; };
+		8D34348F19DF9F16004CFA3B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */; };
+		8D34349319DF9F46004CFA3B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349219DF9F46004CFA3B /* CoreLocation.framework */; };
+		8D34349519DF9F4B004CFA3B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349419DF9F4B004CFA3B /* StoreKit.framework */; };
+		8D34349719DF9F55004CFA3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349619DF9F55004CFA3B /* CoreGraphics.framework */; };
+		8D34349919DF9F60004CFA3B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349819DF9F60004CFA3B /* QuartzCore.framework */; };
+		8D34349B19DF9F75004CFA3B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349A19DF9F75004CFA3B /* AudioToolbox.framework */; };
+		8D34349D19DF9F7A004CFA3B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349C19DF9F7A004CFA3B /* CFNetwork.framework */; };
+		8D34349F19DF9F8B004CFA3B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D34349E19DF9F8B004CFA3B /* libz.dylib */; };
+		8D3434A119DF9FA0004CFA3B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3434A019DF9FA0004CFA3B /* MobileCoreServices.framework */; };
+		8D3434A319DF9FAA004CFA3B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3434A219DF9FAA004CFA3B /* Security.framework */; };
+		8D3434A519DF9FB4004CFA3B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */; };
+		8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3434A719DFA079004CFA3B /* ParseImport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +53,22 @@
 		3F493C0F19DF961F00D0F1E8 /* WordlessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordlessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F493C1419DF961F00D0F1E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F493C1519DF961F00D0F1E8 /* WordlessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlessTests.swift; sourceTree = "<group>"; };
-		3F493C1F19DF9B4300D0F1E8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../Downloads/parse-library-1.4.1/Parse.framework"; sourceTree = "<group>"; };
-		3F493C2119DF9B8900D0F1E8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Downloads/parse-library-1.4.1/Bolts.framework"; sourceTree = "<group>"; };
-		3F493C2219DF9B8900D0F1E8 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../Downloads/parse-library-1.4.1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
-		3F493C2519DF9C1C00D0F1E8 /* Wordless-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wordless-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F493C2819DF9E5100D0F1E8 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		8D34348A19DF9F16004CFA3B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		8D34348B19DF9F16004CFA3B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		8D34349219DF9F46004CFA3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8D34349419DF9F4B004CFA3B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8D34349619DF9F55004CFA3B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8D34349819DF9F60004CFA3B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8D34349A19DF9F75004CFA3B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8D34349C19DF9F7A004CFA3B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8D34349E19DF9F8B004CFA3B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8D3434A019DF9FA0004CFA3B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8D3434A219DF9FAA004CFA3B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8D3434A619DFA079004CFA3B /* Wordless-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wordless-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D3434A719DFA079004CFA3B /* ParseImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseImport.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +76,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F493C2019DF9B4300D0F1E8 /* Parse.framework in Frameworks */,
-				3F493C2319DF9B8900D0F1E8 /* Bolts.framework in Frameworks */,
-				3F493C2419DF9B8900D0F1E8 /* ParseFacebookUtils.framework in Frameworks */,
+				8D3434A519DF9FB4004CFA3B /* SystemConfiguration.framework in Frameworks */,
+				8D3434A319DF9FAA004CFA3B /* Security.framework in Frameworks */,
+				8D3434A119DF9FA0004CFA3B /* MobileCoreServices.framework in Frameworks */,
+				8D34349F19DF9F8B004CFA3B /* libz.dylib in Frameworks */,
+				8D34349719DF9F55004CFA3B /* CoreGraphics.framework in Frameworks */,
+				8D34349D19DF9F7A004CFA3B /* CFNetwork.framework in Frameworks */,
+				8D34349B19DF9F75004CFA3B /* AudioToolbox.framework in Frameworks */,
+				8D34349919DF9F60004CFA3B /* QuartzCore.framework in Frameworks */,
+				8D34349519DF9F4B004CFA3B /* StoreKit.framework in Frameworks */,
+				8D34349319DF9F46004CFA3B /* CoreLocation.framework in Frameworks */,
+				8D34348E19DF9F16004CFA3B /* Parse.framework in Frameworks */,
+				8D34348D19DF9F16004CFA3B /* Bolts.framework in Frameworks */,
+				8D34348F19DF9F16004CFA3B /* ParseFacebookUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +105,19 @@
 		3F493BEF19DF961E00D0F1E8 = {
 			isa = PBXGroup;
 			children = (
-				3F493C2119DF9B8900D0F1E8 /* Bolts.framework */,
-				3F493C2219DF9B8900D0F1E8 /* ParseFacebookUtils.framework */,
-				3F493C1F19DF9B4300D0F1E8 /* Parse.framework */,
+				8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */,
+				8D3434A219DF9FAA004CFA3B /* Security.framework */,
+				8D3434A019DF9FA0004CFA3B /* MobileCoreServices.framework */,
+				8D34349E19DF9F8B004CFA3B /* libz.dylib */,
+				8D34349C19DF9F7A004CFA3B /* CFNetwork.framework */,
+				8D34349A19DF9F75004CFA3B /* AudioToolbox.framework */,
+				8D34349819DF9F60004CFA3B /* QuartzCore.framework */,
+				8D34349619DF9F55004CFA3B /* CoreGraphics.framework */,
+				8D34349419DF9F4B004CFA3B /* StoreKit.framework */,
+				8D34349219DF9F46004CFA3B /* CoreLocation.framework */,
+				8D34348A19DF9F16004CFA3B /* Bolts.framework */,
+				8D34348B19DF9F16004CFA3B /* Parse.framework */,
+				8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */,
 				3F493BFA19DF961E00D0F1E8 /* Wordless */,
 				3F493C1219DF961F00D0F1E8 /* WordlessTests */,
 				3F493BF919DF961E00D0F1E8 /* Products */,
@@ -96,13 +138,14 @@
 			children = (
 				3F493BFD19DF961E00D0F1E8 /* AppDelegate.swift */,
 				3F493BFF19DF961E00D0F1E8 /* MasterViewController.swift */,
+				8D3434A719DFA079004CFA3B /* ParseImport.m */,
 				3F493C0119DF961E00D0F1E8 /* DetailViewController.swift */,
 				3F493C0319DF961E00D0F1E8 /* Main.storyboard */,
 				3F493C0619DF961E00D0F1E8 /* Images.xcassets */,
 				3F493C0819DF961E00D0F1E8 /* LaunchScreen.xib */,
 				3F493BFB19DF961E00D0F1E8 /* Supporting Files */,
-				3F493C2519DF9C1C00D0F1E8 /* Wordless-Bridging-Header.h */,
 				3F493C2819DF9E5100D0F1E8 /* Person.swift */,
+				8D3434A619DFA079004CFA3B /* Wordless-Bridging-Header.h */,
 			);
 			path = Wordless;
 			sourceTree = "<group>";
@@ -235,6 +278,7 @@
 				3F493C0219DF961E00D0F1E8 /* DetailViewController.swift in Sources */,
 				3F493C2919DF9E5100D0F1E8 /* Person.swift in Sources */,
 				3F493C0019DF961E00D0F1E8 /* MasterViewController.swift in Sources */,
+				8D3434A819DFA079004CFA3B /* ParseImport.m in Sources */,
 				3F493BFE19DF961E00D0F1E8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +405,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/S_sn/Downloads/parse-library-1.4.1",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Wordless/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -378,7 +422,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/S_sn/Downloads/parse-library-1.4.1",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Wordless/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +484,7 @@
 				3F493C1B19DF961F00D0F1E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F493C1C19DF961F00D0F1E8 /* Build configuration list for PBXNativeTarget "WordlessTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +493,7 @@
 				3F493C1E19DF961F00D0F1E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
