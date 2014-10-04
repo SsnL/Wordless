@@ -68,17 +68,6 @@ class RSTFriendViewController: UITableViewController {
         presentViewController(newWordPrompt, animated: true, completion: nil)
     }
     
-    // MARK: - Segues
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as Person
-                (segue.destinationViewController as DetailViewController).detailItem = object
-            }
-        }
-    }
-    
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -20,19 +20,20 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
         var friendsRequest = FBRequest.requestForMyFriends()
         friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            var resultdict = result as NSDictionary
+            var resultdict : NSDictionary = result as NSDictionary
+            NSLog("%@", resultdict)
             var data : NSArray = resultdict.objectForKey("data") as NSArray
             
-            for i in 0...data.count {
+            for i in 0..<data.count {
                 let valueDict : NSDictionary = data[i] as NSDictionary
                 let id = valueDict.objectForKey("id") as String
             }
             
             self.fbFriends = resultdict.objectForKey("data") as NSArray
             NSLog("%d", self.fbFriends.count)
+            //let vc = RSTFriendViewController(fromFriends: self.fbFriends)
+            //self.presentViewController(vc, animated: false, completion: nil)
         }
-        let vc = RSTFriendViewController(fromFriends: self.fbFriends)
-        self.presentViewController(vc, animated: false, completion: nil)
     }
     
     override func awakeFromNib() {
@@ -47,7 +48,8 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
         
-        let fbLoginView = FBLoginView()
+        let fbLoginView = FBLoginView(readPermissions: ["public_profile", "email", "user_friends"])
+        fbLoginView.delegate = self
         fbLoginView.center = self.view.center
         self.view.addSubview(fbLoginView)
     }
