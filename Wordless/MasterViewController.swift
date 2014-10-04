@@ -87,7 +87,8 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = objects[indexPath.row] as Person
-            (segue.destinationViewController as DetailViewController).detailItem = object
+                NSLog("nothing")
+//            (segue.destinationViewController as DetailViewController).detailItem = object
             }
         }
     }
