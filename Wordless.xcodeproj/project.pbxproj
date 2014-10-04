@@ -242,12 +242,9 @@
 		3F493BEF19DF961E00D0F1E8 = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				8D34348C19DF9F16004CFA3B /* ParseFacebookUtils.framework */,
-=======
 				3F639EFA19E09EC000096DD1 /* JSQSystemSoundPlayer */,
 				3F639E7319E09EB800096DD1 /* JSQMessagesViewController */,
->>>>>>> 70dcac1b9a29f27bc83a98326e9acadc6b1166ef
 				8D34365D19E09202004CFA3B /* FacebookSDK.framework */,
 				8D3434A419DF9FB4004CFA3B /* SystemConfiguration.framework */,
 				8D3434A219DF9FAA004CFA3B /* Security.framework */,
@@ -622,11 +619,8 @@
 			files = (
 				8D34366219E0AD0B004CFA3B /* RSTUser.swift in Sources */,
 				3F493C0219DF961E00D0F1E8 /* DetailViewController.swift in Sources */,
-<<<<<<< HEAD
 				8D34366019E09A72004CFA3B /* RSTFriendViewController.swift in Sources */,
-=======
 				3F639EE019E09EB800096DD1 /* JSQMessagesKeyboardController.m in Sources */,
->>>>>>> 70dcac1b9a29f27bc83a98326e9acadc6b1166ef
 				3F493C2919DF9E5100D0F1E8 /* Person.swift in Sources */,
 				3F639EEA19E09EB800096DD1 /* JSQMessage.m in Sources */,
 				3F639EDC19E09EB800096DD1 /* NSString+JSQMessages.m in Sources */,
