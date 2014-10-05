@@ -84,9 +84,11 @@ class DetailViewController: JSQMessagesViewController {
             self.messages.append(RSTMessage.makeJSQMessage(message as RSTMessage))
         }
         NSLog("%@", (self.messages.last as JSQMessage))
-        dispatch_async(dispatch_get_main_queue(),{
-            self.collectionView.reloadData()
-        })
+        self.finishReceivingMessage()
+//        dispatch_async(dispatch_get_main_queue(), {
+//            self.collectionView.reloadData()
+//            self.scrollToBottomAnimated(true)
+//        })
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
