@@ -12,18 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 //        RSTUser.registerSubclass()
 //        RSTMessage.registerSubclass()
         Parse.setApplicationId("Xb9goIiVWItoODGfblJxcCGGYiFY2Nfx2QgkXqZ0", clientKey: "lvCrual6uXYXiBuW4spWKqfmyo6iunHiS70etNoL")
-        
         PFFacebookUtils.initializeFacebook()
-        
+
         return true
     }
-    
+
     func application(application: UIApplication,
         openURL url: NSURL,
         sourceApplication: String,
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication,
                 withSession:PFFacebookUtils.session())
     }
-    
+
     func applicationDidBecomeActive(application: UIApplication) {
         FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
     }

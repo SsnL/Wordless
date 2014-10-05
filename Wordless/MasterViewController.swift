@@ -13,48 +13,52 @@ struct FbUser {
 }
 
 class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInViewControllerDelegate {
-    
+
     var objects = NSMutableArray()
     var fbFriends: NSArray! = NSArray.array()
-    
+
     func loginView(loginView: FBLoginView!, handleError error: NSError!) {
         NSLog("Login Error")
     }
-    
-    
+
+    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
+        self.fbUser.name = user.name
+    }
+
+
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
         FbUser.user = RSTUser(name: user.name)
     }
-        
+
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
-//        let query = PFQuery(className: "RSTUser")
-//        query.whereKey("name", equalTo: self.fbUser.name)
-//        var resultarr: NSArray = query.findObjects()
-//        var user: RSTUser!
-//        if (resultarr.count == 0) {
-//            user = RSTUser(name: self.fbUser.name)
-//            user.saveInBackground();
-//            FbUser.user = user;
-//        } else {
-//            FbUser.user = resultarr[0] as RSTUser
-//        }
         var friendsRequest = FBRequest.requestForMyFriends()
+        let query = PFQuery(className: "RSTUser")
+        query.whereKey("name", equalTo: self.fbUser.name)
+        var resultarr: NSArray = query.findObjects()
+        var user: RSTUser!
+        if (resultarr.count == 0) {
+            user = RSTUser(name: self.fbUser.name)
+            user.saveInBackground();
+            self.fbUser = user;
+        } else {
+            self.fbUser = resultarr[0] as RSTUser
+        }
         friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             var resultdict : NSDictionary = result as NSDictionary
             NSLog("%@", resultdict)
             var data : NSArray = resultdict.objectForKey("data") as NSArray
-            
+
             for i in 0..<data.count {
                 let valueDict : NSDictionary = data[i] as NSDictionary
                 let id = valueDict.objectForKey("id") as String
             }
-            
+
             self.fbFriends = resultdict.objectForKey("data") as NSArray
             let vc = RSTFriendViewController(fbFriends: self.fbFriends)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -66,7 +70,7 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInV
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
-        
+
         let fbLoginView = FBLoginView(readPermissions: ["public_profile", "email", "user_friends"])
         fbLoginView.delegate = self
         fbLoginView.center = self.view.center
@@ -89,7 +93,7 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInV
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
             self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
-        
+
         // display an alert
         let newWordPrompt = UIAlertController(title: "Enter contact name", message: "Chat wordlessly!", preferredStyle: UIAlertControllerStyle.Alert)
         newWordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in

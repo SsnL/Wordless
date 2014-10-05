@@ -14,19 +14,19 @@ class RSTMessage: PFObject, PFSubclassing {
     var date: NSDate?
     var read: Bool!
 //    var sentiment: Int!
-    
+
     override class func load() {
         self.registerSubclass()
     }
-    
+
     class func parseClassName() -> String! {
-        return "Message"
+        return "RSTMessage"
     }
-    
+
     init(sender s: RSTUser, receiver r: RSTUser, content c: String, date d: NSDate) {
         super.init()
         sender = s
-        receiver = r
+       receiver = r
         content = c
         date = d
         read = false
@@ -35,5 +35,4 @@ class RSTMessage: PFObject, PFSubclassing {
     class func makeJSQMessage(m : RSTMessage) -> JSQMessage {
         return JSQMessage(text: m.content!, sender: m.sender!.name, date: m.date!)
     }
-//    int sentiment
 }
