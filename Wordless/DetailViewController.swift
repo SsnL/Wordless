@@ -53,6 +53,11 @@ class DetailViewController: JSQMessagesViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NSLog("loaded with receiver %s", receiver!.name)
 //        self.configureView()
+        let myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFunc", userInfo: nil, repeats: true)
+    }
+    
+    func timerFunc() {
+        self.viewDidLoad()
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
