@@ -8,16 +8,31 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, FBLoginViewDelegate {
+class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInViewControllerDelegate {
     
     var objects = NSMutableArray()
     var fbFriends: NSArray! = NSArray.array()
+    var fbUser: RSTUser!
     
     func loginView(loginView: FBLoginView!, handleError error: NSError!) {
         NSLog("Login Error")
     }
     
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
+        var userRequest = FBRequest.requestForMe()
+        userRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
+            var resultarr: NSArray = PFQuery(className: "RSTUser").findObjects()
+            var user: RSTUser!
+            if (resultarr.count == 0) {
+                var resultdict : NSDictionary = result as NSDictionary
+                var data : NSArray = resultdict.objectForKey("data") as NSArray
+                user.name = (data[0] as FBGraphObject).objectForKey("name") as String
+                user.saveInBackground();
+                self.fbUser = user;
+            } else {
+                self.fbUser = resultarr[0] as RSTUser
+            }
+        }
         var friendsRequest = FBRequest.requestForMyFriends()
         friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             var resultdict : NSDictionary = result as NSDictionary
@@ -30,9 +45,8 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate {
             }
             
             self.fbFriends = resultdict.objectForKey("data") as NSArray
-            NSLog("%d", self.fbFriends.count)
-            //let vc = RSTFriendViewController(fromFriends: self.fbFriends)
-            //self.presentViewController(vc, animated: false, completion: nil)
+            let vc = RSTFriendViewController(fbFriends: self.fbFriends)
+            self.presentViewController(vc, animated: false, completion: nil)
         }
     }
     

@@ -11,21 +11,26 @@ import UIKit
 
 class RSTFriendViewController: UITableViewController {
     
-    var objects = NSMutableArray()
+    var objects = NSMutableArray.array()
     
     override init() {
-        super.init()
+        super.init(style: UITableViewStyle.Plain)
     }
     
-    convenience init(fromFriends fbFriends: NSArray) {
-        self.init()
-        objects = fbFriends.mutableCopy() as NSMutableArray
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    init(fbFriends: NSArray) {
+        super.init(style: UITableViewStyle.Plain)
+        self.objects = fbFriends.mutableCopy() as NSMutableArray
+        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "Cell")
     }
 
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -81,8 +86,8 @@ class RSTFriendViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
-        let object = objects[indexPath.row] as Person
-        cell.textLabel?.text = object.name
+        let object = self.objects[indexPath.row]
+        cell.textLabel?.text = (object as FBGraphObject).objectForKey("name") as String
         return cell
     }
     
