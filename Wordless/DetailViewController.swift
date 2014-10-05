@@ -55,10 +55,15 @@ class DetailViewController: JSQMessagesViewController {
 //        self.configureView()
         let myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFunc", userInfo: nil, repeats: true)
         let query = PFQuery(className: "RSTMessage")
+        NSLog(receiver)
         query.whereKey("sender", containedIn: [FbUser.user.id, receiver])
         query.whereKey("receiver", containedIn: [FbUser.user.id, receiver])
         query.addAscendingOrder("date")
-        var messageArr = query.findObjects() as NSArray
+        let result = query.findObjects()
+        var messageArr = NSArray.array()
+        if (result != nil) {
+            messageArr = result as NSArray
+        }
         for message in messageArr {
             self.messages.append(RSTMessage.makeJSQMessage(message as RSTMessage))
         }
