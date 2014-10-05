@@ -49,7 +49,6 @@ class DetailViewController: JSQMessagesViewController {
 //    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         NSLog("loaded with receiver %s", receiver)
 //        self.configureView()
@@ -67,10 +66,27 @@ class DetailViewController: JSQMessagesViewController {
         for message in messageArr {
             self.messages.append(RSTMessage.makeJSQMessage(message as RSTMessage))
         }
+        super.viewDidLoad()
     }
     
     func timerFunc() {
-        self.collectionView.reloadData()
+        let query = PFQuery(className: "RSTMessage")
+        self.messages = []
+        query.whereKey("sender", containedIn: [FbUser.user.id, receiver])
+        query.whereKey("receiver", containedIn: [FbUser.user.id, receiver])
+        query.addAscendingOrder("date")
+        let result = query.findObjects()
+        var messageArr = NSArray.array()
+        if (result != nil) {
+            messageArr = result as NSArray
+        }
+        for message in messageArr {
+            self.messages.append(RSTMessage.makeJSQMessage(message as RSTMessage))
+        }
+        NSLog("%@", (self.messages.last as JSQMessage))
+        dispatch_async(dispatch_get_main_queue(),{
+            self.collectionView.reloadData()
+        })
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
