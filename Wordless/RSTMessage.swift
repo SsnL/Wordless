@@ -7,7 +7,11 @@
 //
 
 import Foundation
-class RSTMessage: PFObject {
+class RSTMessage: PFObject, PFSubclassing {
+    class func parseClassName() -> String! {
+        return "RSTMessage"
+    }
+    
     var sender: RSTUser?
     var receiver: RSTUser?
     var content: String?
@@ -18,7 +22,7 @@ class RSTMessage: PFObject {
     init(sender s: RSTUser, receiver r: RSTUser, content c: String, date d: NSDate) {
         super.init()
         sender = s
-        receiver = r
+       receiver = r
         content = c
         date = d
         read = false
@@ -27,5 +31,4 @@ class RSTMessage: PFObject {
     class func makeJSQMessage(m : RSTMessage) -> JSQMessage {
         return JSQMessage(text: m.content!, sender: m.sender!.name, date: m.date!)
     }
-//    int sentiment
 }

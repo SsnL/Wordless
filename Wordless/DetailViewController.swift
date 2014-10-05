@@ -46,11 +46,11 @@ class DetailViewController: JSQMessagesViewController {
         self.messages.append(RSTMessage.makeJSQMessage(message))
         self.finishSendingMessage()
     }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 
 }

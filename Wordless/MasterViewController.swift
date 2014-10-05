@@ -12,27 +12,29 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInV
     
     var objects = NSMutableArray()
     var fbFriends: NSArray! = NSArray.array()
-    var fbUser: RSTUser!
+    var fbUser: RSTUser! = RSTUser()
     
     func loginView(loginView: FBLoginView!, handleError error: NSError!) {
         NSLog("Login Error")
     }
+
+    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
+        self.fbUser.name = user.name
+    }
     
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
-        var userRequest = FBRequest.requestForMe()
-        userRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            var resultarr: NSArray = PFQuery(className: "RSTUser").findObjects()
-            var user: RSTUser!
-            if (resultarr.count == 0) {
-                var resultdict = result as FBGraphObject
-                user = RSTUser(name: resultdict.objectForKey("name") as String)
-                user.saveInBackground();
-                self.fbUser = user;
-            } else {
-                self.fbUser = resultarr[0] as RSTUser
-            }
-        }
         var friendsRequest = FBRequest.requestForMyFriends()
+        let query = PFQuery(className: "RSTUser")
+        query.whereKey("name", equalTo: self.fbUser.name)
+        var resultarr: NSArray = query.findObjects()
+        var user: RSTUser!
+        if (resultarr.count == 0) {
+            user = RSTUser(name: self.fbUser.name)
+            user.saveInBackground();
+            self.fbUser = user;
+        } else {
+            self.fbUser = resultarr[0] as RSTUser
+        }
         friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             var resultdict : NSDictionary = result as NSDictionary
             NSLog("%@", resultdict)

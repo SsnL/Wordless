@@ -11,6 +11,10 @@ class RSTUser: PFUser {
     var name: String!
     var friends_dic: NSDictionary!
     
+    override init() {
+        super.init()
+    }
+    
     init(name: String!) {
         super.init()
         self.name = name
