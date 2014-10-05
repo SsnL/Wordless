@@ -12,7 +12,7 @@ class DetailViewController: JSQMessagesViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     
-    var receiver: RSTUser?
+    var receiver: String!
     
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
@@ -51,19 +51,27 @@ class DetailViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSLog("loaded with receiver %s", receiver!.name)
+        NSLog("loaded with receiver %s", receiver)
 //        self.configureView()
         let myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFunc", userInfo: nil, repeats: true)
+        let query = PFQuery(className: "RSTMessage")
+        query.whereKey("sender", containedIn: [FbUser.user.id, receiver])
+        query.whereKey("receiver", containedIn: [FbUser.user.id, receiver])
+        query.addAscendingOrder("date")
+        var messageArr = query.findObjects() as NSArray
+        for message in messageArr {
+            self.messages.append(RSTMessage.makeJSQMessage(message as RSTMessage))
+        }
     }
     
     func timerFunc() {
-        self.viewDidLoad()
+        self.collectionView.reloadData()
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         NSLog("text: %s\n", sender)
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        var message : RSTMessage = RSTMessage(sender: FbUser.user, receiver: FbUser.user, content: text, date: date)
+        var message : RSTMessage = RSTMessage(sender: FbUser.user.id, receiver: receiver, content: text, date: date)
         message.saveInBackgroundWithBlock(nil)
         self.messages.append(RSTMessage.makeJSQMessage(message))
         self.finishSendingMessage()

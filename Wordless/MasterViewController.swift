@@ -23,7 +23,7 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInV
 
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
         FbUser.user = RSTUser(name: user.name, id: user.objectForKey("id") as String!)
-        FbUser.user.saveInBackground()
+        //FbUser.user.saveInBackground()
     }
 
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {

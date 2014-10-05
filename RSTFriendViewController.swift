@@ -95,7 +95,7 @@ class RSTFriendViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc = DetailViewController()
-        vc.receiver = RSTUser(graphObj: objects.objectAtIndex(indexPath.row) as FBGraphObject)
+        vc.receiver = (objects.objectAtIndex(indexPath.row) as FBGraphObject).objectForKey("id") as String
         self.navigationController!.pushViewController(vc, animated: true)
     }
 

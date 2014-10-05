@@ -8,8 +8,8 @@
 
 import Foundation
 class RSTMessage: PFObject, PFSubclassing {
-    var sender: RSTUser?
-    var receiver: RSTUser?
+    @NSManaged var sender: String
+    @NSManaged var receiver: String
     @NSManaged var content: String
     @NSManaged var date: NSDate
     var read: Bool = false
@@ -23,7 +23,7 @@ class RSTMessage: PFObject, PFSubclassing {
         return "RSTMessage"
     }
     
-    init(sender s: RSTUser, receiver r: RSTUser, content c: String, date d: NSDate) {
+    init(sender s: String, receiver r: String, content c: String, date d: NSDate) {
         super.init()
         sender = s
         receiver = r
@@ -33,6 +33,6 @@ class RSTMessage: PFObject, PFSubclassing {
     }
 
     class func makeJSQMessage(m : RSTMessage) -> JSQMessage {
-        return JSQMessage(text: m.content, sender: m.sender!.name, date: m.date)
+        return JSQMessage(text: m.content, sender: m.sender, date: m.date)
     }
 }
