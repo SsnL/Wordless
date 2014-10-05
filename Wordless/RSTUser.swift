@@ -10,4 +10,9 @@ import Foundation
 class RSTUser: PFUser {
     var name: String!
     var friends_dic: NSDictionary!
+    
+    init(name: String!) {
+        super.init()
+        self.name = name
+    }
 }
