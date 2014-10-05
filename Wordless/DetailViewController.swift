@@ -14,6 +14,10 @@ class DetailViewController: JSQMessagesViewController {
     
     var receiver: RSTUser?
     
+    var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+    var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
+    
+    
     private var messages: Array<JSQMessageData> = []
 //
 //
@@ -55,6 +59,7 @@ class DetailViewController: JSQMessagesViewController {
         NSLog("text: %s\n", sender)
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         var message = RSTMessage(sender: FbUser.user, receiver: FbUser.user, content: text, date: date)
+        message.saveInBackground()
         self.messages.append(RSTMessage.makeJSQMessage(message))
         self.finishSendingMessage()
     }
@@ -63,7 +68,41 @@ class DetailViewController: JSQMessagesViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+        return self.messages.count
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) ->UICollectionViewCell {
+        var cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as JSQMessagesCollectionViewCell
+        
+        var message = self.messages[indexPath.item]
+        if message.sender() == FbUser.user {
+            cell.textView.textColor = UIColor.blackColor()
+        } else {
+            cell.textView.textColor = UIColor.whiteColor()
+        }
+        
+        return cell
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, bubbleImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
+        let message = messages[indexPath.item]
+        
+        if message.sender() == FbUser.user {
+            return UIImageView(image: outgoingBubbleImageView.image, highlightedImage: outgoingBubbleImageView.highlightedImage)
+        }
+        
+        return UIImageView(image: incomingBubbleImageView.image, highlightedImage: incomingBubbleImageView.highlightedImage)
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
+        let img = UIImage(data: NSData(contentsOfURL: NSURL(string: "http://i2.wp.com/c0589922.cdn.cloudfiles.rackspacecloud.com/avatars/male200.png")))
+        return nil
+    }
 }
 
