@@ -40,10 +40,10 @@ class DetailViewController: JSQMessagesViewController {
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
-        NSLog("text: %s\n", text)
+        NSLog("text: %s\n", sender)
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        var message = JSQMessage(text: text, sender: sender)
-        self.messages.append(message)
+        var message = RSTMessage(sender: RSTUser.currentUser(), receiver: RSTUser.currentUser(), content: text, date: date)
+        self.messages.append(RSTMessage.makeJSQMessage(message))
         self.finishSendingMessage()
     }
 //
