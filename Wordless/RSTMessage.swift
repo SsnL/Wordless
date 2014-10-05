@@ -7,13 +7,21 @@
 //
 
 import Foundation
-class RSTMessage: PFObject {
+class RSTMessage: PFObject, PFSubclassing {
     var sender: RSTUser?
     var receiver: RSTUser?
     var content: String?
     var date: NSDate?
     var read: Bool!
 //    var sentiment: Int!
+    
+    override class func load() {
+        self.registerSubclass()
+    }
+    
+    class func parseClassName() -> String! {
+        return "Message"
+    }
     
     init(sender s: RSTUser, receiver r: RSTUser, content c: String, date d: NSDate) {
         super.init()

@@ -7,3 +7,4 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "JSQMessages.h"
 #import "JSQMessageData.h"
+#import <Parse/PFObject+Subclass.h>

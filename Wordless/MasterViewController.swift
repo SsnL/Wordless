@@ -8,30 +8,36 @@
 
 import UIKit
 
+struct FbUser {
+    static var user: RSTUser!
+}
+
 class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInViewControllerDelegate {
     
     var objects = NSMutableArray()
     var fbFriends: NSArray! = NSArray.array()
-    var fbUser: RSTUser!
     
     func loginView(loginView: FBLoginView!, handleError error: NSError!) {
         NSLog("Login Error")
     }
     
+    
+    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
+        FbUser.user = RSTUser(name: user.name)
+    }
+        
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
-        var userRequest = FBRequest.requestForMe()
-        userRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            var resultarr: NSArray = PFQuery(className: "RSTUser").findObjects()
-            var user: RSTUser! = RSTUser()
-            if (resultarr.count == 0) {
-                var resultdict : FBGraphObject = result as FBGraphObject
-                //user.name = (resultdict.objectForKey("name")) as String
-                //user.saveInBackground();
-                self.fbUser = user;
-            } else {
-                self.fbUser = resultarr[0] as RSTUser
-            }
-        }
+//        let query = PFQuery(className: "RSTUser")
+//        query.whereKey("name", equalTo: self.fbUser.name)
+//        var resultarr: NSArray = query.findObjects()
+//        var user: RSTUser!
+//        if (resultarr.count == 0) {
+//            user = RSTUser(name: self.fbUser.name)
+//            user.saveInBackground();
+//            FbUser.user = user;
+//        } else {
+//            FbUser.user = resultarr[0] as RSTUser
+//        }
         var friendsRequest = FBRequest.requestForMyFriends()
         friendsRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             var resultdict : NSDictionary = result as NSDictionary
@@ -45,7 +51,7 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInV
             
             self.fbFriends = resultdict.objectForKey("data") as NSArray
             let vc = RSTFriendViewController(fbFriends: self.fbFriends)
-            self.presentViewController(vc, animated: false, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
