@@ -23,6 +23,10 @@ class RSTMessage: PFObject, PFSubclassing {
         return "RSTMessage"
     }
     
+    override init() {
+        super.init()
+    }
+    
     init(sender s: String, receiver r: String, content c: String, date d: NSDate) {
         super.init()
         sender = s
