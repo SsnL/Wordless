@@ -22,12 +22,11 @@ class MasterViewController: UITableViewController, FBLoginViewDelegate, PFLogInV
         var userRequest = FBRequest.requestForMe()
         userRequest.startWithCompletionHandler{(connection:FBRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
             var resultarr: NSArray = PFQuery(className: "RSTUser").findObjects()
-            var user: RSTUser!
+            var user: RSTUser! = RSTUser()
             if (resultarr.count == 0) {
-                var resultdict : NSDictionary = result as NSDictionary
-                var data : NSArray = resultdict.objectForKey("data") as NSArray
-                user.name = (data[0] as FBGraphObject).objectForKey("name") as String
-                user.saveInBackground();
+                var resultdict : FBGraphObject = result as FBGraphObject
+                //user.name = (resultdict.objectForKey("name")) as String
+                //user.saveInBackground();
                 self.fbUser = user;
             } else {
                 self.fbUser = resultarr[0] as RSTUser
