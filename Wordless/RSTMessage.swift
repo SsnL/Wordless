@@ -10,9 +10,9 @@ import Foundation
 class RSTMessage: PFObject, PFSubclassing {
     var sender: RSTUser?
     var receiver: RSTUser?
-    var content: String!
-    var date: NSDate?
-    var read: Bool!
+    @NSManaged var content: String
+    @NSManaged var date: NSDate
+    var read: Bool = false
 //    var sentiment: Int!
 
     override class func load() {
@@ -22,17 +22,17 @@ class RSTMessage: PFObject, PFSubclassing {
     class func parseClassName() -> String! {
         return "RSTMessage"
     }
-
+    
     init(sender s: RSTUser, receiver r: RSTUser, content c: String, date d: NSDate) {
         super.init()
-        self.sender = s
-        self.receiver = r
-        self.content = c
-        self.date = d
-        self.read = false
+        sender = s
+        receiver = r
+        content = c
+        date = d
+        read = false
     }
 
     class func makeJSQMessage(m : RSTMessage) -> JSQMessage {
-        return JSQMessage(text: m.content!, sender: m.sender!.name, date: m.date!)
+        return JSQMessage(text: m.content, sender: m.sender!.name, date: m.date)
     }
 }

@@ -8,8 +8,9 @@
 
 import Foundation
 class RSTUser: PFUser, PFSubclassing {
-    var name: String!
-    var friends_dic: NSDictionary?
+    @NSManaged var name: String!
+    @NSManaged var friends_dic: NSDictionary?
+    @NSManaged var id: String!
 
     override class func load() {
         self.registerSubclass()
@@ -19,14 +20,16 @@ class RSTUser: PFUser, PFSubclassing {
         super.init()
     }
 
-    init(name n: String!) {
-        name = n
+    init(name n: String!, id i: String!) {
         super.init()
+        name = n
+        id = i
     }
 
     init(graphObj u: FBGraphObject) {
+        super.init()
         name = u.objectForKey("name") as String!
         friends_dic = nil
-        super.init()
+        id = u.objectForKey("id") as String!
     }
 }
